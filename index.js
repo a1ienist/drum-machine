@@ -7,6 +7,8 @@ for(let i = 0; i < numberOfDrums; i++){
 
                 playSample(buttonInnerHTML);
 
+                buttonAnimation(buttonInnerHTML);
+
     })
 }
 
@@ -14,6 +16,9 @@ for(let i = 0; i < numberOfDrums; i++){
 document.addEventListener("keydown", (event) => {
     
     playSample(event.key);
+
+    buttonAnimation(event.key);
+
 });
     
 
@@ -49,3 +54,15 @@ function playSample(key){
           break;  
     }
 }
+
+function buttonAnimation(pressedKey){
+
+    var activeButton = document.querySelector("." + pressedKey);
+    activeButton.classList.add('pressed');
+
+    setTimeout(() => {
+      activeButton.classList.remove('pressed')
+    }, 100);
+
+}
+
